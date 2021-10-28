@@ -22,10 +22,20 @@ for (let index = 0; index < 5; index++) {
         index--;
     }
 }
+let timeElapsed = 0;
+document.getElementById("text").innerHTML = "Rimani concentrato e attendi 30 secondi!";
+const clock = setInterval(myfunction, 1000);
+function myfunction(){
+    document.getElementById("time").innerHTML = timeElapsed;
+    timeElapsed++;
+    if(timeElapsed == 32){
+        document.getElementById("text").innerHTML = "";
+        document.getElementById("time").innerHTML = "";
+        clearInterval(clock);
+        memTester(numShowed);
+    }
+} 
 
-setTimeout(function() {
-    memTester(numShowed);
-}, 1000);
 
 /* funzione che controlla i numeri inseriti */
 function memTester(numS){
